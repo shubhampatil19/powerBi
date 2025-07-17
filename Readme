@@ -1,0 +1,52 @@
+1.Objective
+To develop an interactive and user-friendly Power BI dashboard to analyze sales and order data across products, time, and regions. 
+The solution should support business decision-making by providing relevant KPIs and visual insights.
+
+2.Scope
+In Scope: • Sales, Orders, and Returns visualization 
+• Time-based and product-wise trend analysis 
+• Interactive filters and drill-down capabilities 
+• RLS (Row-Level Security) implementation Out of Scope: 
+• Data correction or source data cleansing
+
+3.Data Sources (Tabular Format)
+Table Name Type Source Format
+
+TBL_FACT_SALES Fact Excel/CSV 
+TBL_FACT_INVENTORY Fact Excel/CSV 
+TBL_DIM_COUNTRY_LKP Dimension Excel/CSV 
+TBL_DIM_DATE_TIME Dimension Excel/CSV 
+TBL_DIM_ORDER_METHOD_LKP Dimension Excel/CSV 
+TBL_DIM_PRODUCT Dimension Excel/CSV 
+TBL_DIM_RETURN_REASON_LKP Dimension Excel/CSV 
+TBL_DIM_WAREHOUSE_LKP Dimension Excel/CSV 
+TBL_DIM_PRODUCT_NAME_LKP Dimension Excel/CSV 
+SecurityTable Dimension Excel/CSV 
+TBL_DIM_ORDER Dimension Excel/CSV
+
+4.Key KPIs and Measures
+Total Sales = SUM(TBL_FACT_SALES[SALE_TOTAL])
+
+Total Orders = COUNT(TBL_FACT_SALES[SALES_ORDER_KEY])
+
+Total_returns = SUM(TBL_FACT_SALES[RETURNED_QUANTITY])
+
+Total Profit = [Total Sales] - SUM(TBL_FACT_SALES[Profit])
+
+Total Profit % = DIVIDE([Total Profit], [Total Sales])
+
+5.Report Pages and Visuals
+
+Dashboard High-level KPIs and trends KPI cards, line charts, slicers
+
+Order Details Product-wise sales and returns Bar charts, matrix, donut chart
+
+Sales Details Performance by region and city Map visual, stacked bar
+
+Map Total order by Country Name Area chart, line chart, slicers
+
+6.Functional Requirements
+
+Analytical Process Workflow
+
+Data Understand -->Importing From On-Premises-->Importing Into Power Bi Desktop --> Model Creation --> Sharing --> Visual Building --> Publishing --> Power Bi Service
